@@ -6,3 +6,4 @@ Example:
 
     This will create:
         db/migrate/create_pages.rb
+        app/views/pages
