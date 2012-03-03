@@ -6,6 +6,10 @@ class Page < ActiveRecord::Base
   after_update :rename_template
   after_destroy :remove_template
 
+  validates :title, :slug, uniqueness: true
+  validates :title, presence: true
+  validates :slug, presence: true, on: :update
+
   def template_path
     template_path_from_slug(slug)
   end
