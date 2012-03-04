@@ -41,6 +41,8 @@ RSpec.configure do |config|
   # rspec-rails.
   config.infer_base_class_for_anonymous_controllers = false
 
+  config.filter_run :focus => true
+
   config.after(:suite) do
     destroy_install_and_remove_db
   end

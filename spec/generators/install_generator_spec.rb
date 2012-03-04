@@ -8,4 +8,8 @@ describe "Manifest::InstallGenerator" do
   it "creates the pages directory" do
     File.exist?("#{Rails.root}/app/views/pages").should be(true)
   end
+
+  it "creates the public layout" do
+    File.exist?("#{Rails.root}/app/views/layouts/public.html.erb").should be(true)
+  end
 end

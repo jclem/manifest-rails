@@ -10,5 +10,9 @@ class Manifest::InstallGenerator < ActiveRecord::Generators::Base
   def create_pages_directory
     empty_directory 'app/views/pages'
   end
+
+  def create_public_layout
+    create_file 'app/views/layouts/public.html.erb'
+  end
 end
 
