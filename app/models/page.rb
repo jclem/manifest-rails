@@ -10,6 +10,8 @@ class Page < ActiveRecord::Base
   validates :title, presence: true
   validates :slug, presence: true, on: :update
 
+  has_many :content_blocks
+
   def template_path
     template_path_from_slug(slug)
   end
