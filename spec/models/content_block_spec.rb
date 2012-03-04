@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe ContentBlock, focus: true do
+describe ContentBlock do
   before :each do
     @page = Factory(:page)
     @cb = Factory(:content_block, title: "Welcome Message", page: @page)
