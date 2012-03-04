@@ -1,4 +1,4 @@
-class Manifest::PagesController < ApplicationController
+class Manifest::PagesController < Manifest::ManifestController
   def index
     @pages = Page.all
   end

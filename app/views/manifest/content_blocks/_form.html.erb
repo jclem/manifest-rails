@@ -1,0 +1,21 @@
+<% if @content_block.errors.any? %>
+  <div class='form-errors'>
+    <h3>Whoops!</h3>
+
+    <p>Please correct the following errors:</p>
+
+    <ul>
+      <% @content_block.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div><!-- form-errors -->
+<% end %>
+
+<%= form_for [:manifest, @content_block], builder: Manifest::LabelledFormBuilder do |f| %>
+  <%= f.text_field :title %>
+  <%= f.collection_select :page_id, Page.all, :id, :title %>
+  <%= f.check_box :allow_html %>
+  <%= f.text_area :content %>
+  <%= f.submit %>
+<% end %>

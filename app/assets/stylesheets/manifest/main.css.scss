@@ -1,0 +1,71 @@
+@import 'compass/reset';
+@import 'compass/css3';
+
+$base: 22.856px;
+$accent: #36c;
+
+body { 
+  background: #f8f8f8;
+  font: 100%/1.4285 'PT Sans';
+}
+
+h1, h2 {
+  margin-bottom: $base;
+  font: 200% 'Oswald';
+  text-transform: uppercase;
+}
+
+h1 {
+  padding-bottom: $base;
+  border-bottom: 1px solid #999;
+  font: 200% 'Oswald';
+  text-align: center;
+  text-transform: uppercase;
+
+  /* &:after { content: ':'; } */
+}
+
+p {
+  margin-bottom: 16px;
+  &:last-child { margin-bottom: 0; }
+}
+
+a {
+  color: $accent;
+}
+
+.app-nav {
+  width: $base * 8;
+  position: fixed;
+  top: 0; bottom: 0;
+  padding: $base * 2 $base;
+  background: #fcfcfc;
+  border-right: 1px solid #ccc;
+  @include box-shadow(1px 0 1px rgba(0, 0, 0, 0.1));
+}
+
+.app-nav nav {
+  padding-bottom: $base;
+  border-bottom: 1px solid #999;
+
+  a {
+    display: block;
+    text-decoration: none;
+  }
+
+  a:before {
+    content: '\279b';
+    margin-right: 0.5em;
+  }
+}
+
+.app-content {
+  margin-left: $base * 10;
+  padding: $base * 2 $base;
+}
+
+.model-actions {
+  margin-top: $base;
+}
+
+@import 'forms';

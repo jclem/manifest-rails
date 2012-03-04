@@ -17,6 +17,8 @@ Gem::Specification.new do |s|
 
   s.add_dependency "rails", "~> 3.2.2"
   s.add_dependency 'friendly_id'
+  s.add_dependency 'sass-rails', '~> 3.2.3'
+  s.add_dependency 'compass-rails'
   # s.add_dependency "jquery-rails"
 
   s.add_development_dependency "sqlite3"

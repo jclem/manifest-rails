@@ -1,4 +1,4 @@
-class Manifest::ContentBlocksController < ApplicationController
+class Manifest::ContentBlocksController < Manifest::ManifestController
   def index
     @content_blocks = ContentBlock.all
   end
@@ -8,7 +8,7 @@ class Manifest::ContentBlocksController < ApplicationController
   end
 
   def new
-    @content_block = ContentBlock.new
+    @content_block = ContentBlock.new(params[:content_block])
   end
 
   def create

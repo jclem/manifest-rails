@@ -12,6 +12,8 @@ class Page < ActiveRecord::Base
 
   has_many :content_blocks
 
+  default_scope order('title')
+
   def template_path
     template_path_from_slug(slug)
   end

@@ -1,0 +1,18 @@
+<% if @page.errors.any? %>
+  <div class='form-errors'>
+    <h3>Whoops!</h3>
+
+    <p>Please correct the following errors:</p>
+
+    <ul>
+      <% @page.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div><!-- form-errors -->
+<% end %>
+
+<%= form_for [:manifest, @page], builder: Manifest::LabelledFormBuilder do |f| %>
+  <%= f.text_field :title %>
+  <%= f.submit %>
+<% end %>

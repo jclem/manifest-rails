@@ -1,0 +1,54 @@
+label {
+  display: block;
+  margin-bottom: $base / 4;
+}
+
+input[type='text'],
+textarea {
+  width: $base * 14;
+  font-size: inherit;
+  border: 1px solid #ccc;
+  height: $base;
+  padding: $base / 4;
+  @include box-shadow(0 1px 1px rgba(0,0,0,0.1) inset, 0 1px 0 white);
+}
+
+textarea {
+  height: $base * 10;
+}
+
+.field {
+  margin-bottom: $base;
+
+  &.inline-label {
+    label { 
+      display: inline;
+      margin-right: $base / 2;
+
+      &:after { content: ':'; }
+    }
+  }
+}
+
+.form-actions {
+  margin-top: $base;
+}
+
+.form-errors {
+  width: $base * 16;
+  margin-bottom: $base;
+  padding: $base;
+  padding-left: $base * 2;
+  background: #fcc;
+  border: 1px solid #faa;
+  @include box-shadow(0 1px 1px rgba(0,0,0,0.1));
+
+  h3 { font: 150% 'Oswald'; }
+  p { font-style: italic; }
+  li { position: relative; }
+  li:before {
+    content: '\279b';
+    position: absolute;
+    left: -24px;
+  }
+}

@@ -1,0 +1,13 @@
+<h2>Pages: &ldquo;<%= @page.title %>&rdquo;</h2>
+
+<h3>Content Blocks</h3>
+
+<% if @page.content_blocks.count > 0 %>
+  <ul>
+    <% @page.content_blocks.each do |c| %>
+      <li><%= link_to c.title, manifest_content_block_path(c) %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>This page has no content blocks of its own. <%= link_to 'Add one!', new_manifest_content_block_path(content_block: { page_id: @page.id }) %></p>
+<% end %>
