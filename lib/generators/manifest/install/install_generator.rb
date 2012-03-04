@@ -7,6 +7,10 @@ class Manifest::InstallGenerator < ActiveRecord::Generators::Base
     migration_template 'create_pages.rb', 'db/migrate/create_pages.rb'
   end
 
+  def generate_content_blocks_migratoin
+    migration_template 'create_content_blocks.rb', 'db/migrate/create_content_blocks.rb'
+  end
+
   def create_pages_directory
     empty_directory 'app/views/pages'
   end
