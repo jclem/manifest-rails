@@ -1,11 +1,15 @@
 require 'spec_helper'
 
-describe PagesController, focus: true do
+describe PagesController do
   before :each do
     @page = Factory(:page)
   end
 
   describe "#show" do
+    it "understands the page path" do
+      page_path(@page).should eq("/#{@page.slug}")
+    end
+
     context "with a valid slug" do
       it "renders the public layout" do
         get :show, id: @page.slug
