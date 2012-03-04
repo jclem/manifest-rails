@@ -1,3 +1,13 @@
+def generate_install_and_migrate
+  Dir.chdir(File.expand_path("../dummy", __FILE__))
+  %x{bundle exec rails g manifest:install Page}
+  %x{bundle exec rake db:migrate RAILS_ENV=development}
+  %x{bundle exec rake db:test:prepare}
+  Dir.chdir(File.expand_path("../..", __FILE__))
+end
+
+generate_install_and_migrate
+
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../spec/dummy/config/environment", __FILE__)
@@ -31,15 +41,13 @@ RSpec.configure do |config|
   # rspec-rails.
   config.infer_base_class_for_anonymous_controllers = false
 
-  config.before(:suite) do
-    Dir.chdir("#{Rails.root}")
-    `bundle exec rails g manifest:install Page`
-    `bundle exec rake db:migrate`
-  end
-
   config.after(:suite) do
-    Dir.chdir("#{Rails.root}")
-    `bundle exec rails d manifest:install Page`
-    FileUtils.rm_rf("#{Rails.root}/db")
+    destroy_install_and_remove_db
   end
+end
+
+def destroy_install_and_remove_db
+  Dir.chdir("#{Rails.root}")
+  %x{bundle exec rails d manifest:install Page}
+  FileUtils.rm_rf("#{Rails.root}/db")
 end
