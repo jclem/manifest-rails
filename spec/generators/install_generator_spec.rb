@@ -17,6 +17,10 @@ describe "Manifest::InstallGenerator" do
     Dir.glob("#{Rails.root}/db/migrate/*_add_index_to_content_blocks.rb").count.should be(1)
   end
 
+  it "generates the create editors migration" do
+    Dir.glob("#{Rails.root}/db/migrate/*_create_editors.rb").count.should be(1)
+  end
+
   it "creates the pages directory" do
     File.exist?("#{Rails.root}/app/views/pages").should be(true)
   end

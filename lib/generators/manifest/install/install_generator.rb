@@ -19,6 +19,10 @@ class Manifest::InstallGenerator < ActiveRecord::Generators::Base
     migration_template 'add_index_to_content_blocks.rb', 'db/migrate/add_index_to_content_blocks.rb'
   end
 
+  def generate_create_editors_migration
+    migration_template 'create_editors.rb', 'db/migrate/create_editors.rb'
+  end
+
   def create_pages_directory
     empty_directory 'app/views/pages'
   end
