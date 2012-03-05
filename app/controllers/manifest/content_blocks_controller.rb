@@ -21,6 +21,20 @@ class Manifest::ContentBlocksController < Manifest::ManifestController
     end
   end
 
+  def edit
+    @content_block = ContentBlock.find(params[:id])
+  end
+
+  def update
+    @content_block = ContentBlock.find(params[:id])
+
+    if @content_block.update_attributes(params[:content_block])
+      redirect_to manifest_content_blocks_path
+    else
+      render 'edit'
+    end
+  end
+
   def destroy
     @content_block = ContentBlock.find(params[:id])
     @content_block.destroy

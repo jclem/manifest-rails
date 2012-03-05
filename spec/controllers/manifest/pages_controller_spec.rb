@@ -55,6 +55,39 @@ describe Manifest::PagesController do
     end
   end
 
+  describe "#edit" do
+    it "gets the specified page for editing" do
+      get :edit, id: @page.slug
+      assigns(:page).should eq(@page)
+    end
+  end
+
+  describe "#update" do
+    def do_update(valid = true)
+      page = valid ? { title: 'New Title' } : { title: '' }
+      post :update, id: @page.slug, page: page 
+    end
+
+    context "with a valid page" do
+      it "updates the page" do
+        do_update
+        assigns(:page).title.should eq('New Title')
+      end
+
+      it "redirects to the pages path" do
+        do_update
+        response.should redirect_to(manifest_pages_path)
+      end
+    end
+
+    context "with an invalid page" do
+      it "renders the edit template" do
+        do_update(false)
+        response.should render_template('edit')
+      end
+    end
+  end
+
   describe "#destroy" do
     it "destroys the specified page" do
       expect { delete :destroy, id: @page.slug }.to change(Page, :count).by(-1)

@@ -4,6 +4,8 @@
   <thead>
     <th>Title</th>
     <th>Page</th>
+    <th>Created</th>
+    <th>Updated</th>
   </thead>
 
   <tbody>
@@ -11,6 +13,8 @@
       <tr>
         <td><%= link_to c.title, edit_manifest_content_block_path(c) %></td>
         <td><%= link_to c.page.title, manifest_page_path(c.page) %></td>
+        <td><%= c.created_at.to_s(:short) %></td>
+        <td><%= c.updated_at.to_s(:short) %></td>
       </tr>
     <% end %>
   </tbody>

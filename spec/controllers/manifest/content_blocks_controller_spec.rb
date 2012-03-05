@@ -56,6 +56,43 @@ describe Manifest::ContentBlocksController do
     end
   end
 
+  describe "#edit" do
+    def do_edit
+      get :edit, id: @cb.slug
+    end
+
+    it "gets the specified content block for editing" do
+      do_edit
+      assigns(:content_block).should eq(@cb)
+    end
+  end
+
+  describe "#update" do
+    def do_update(valid = true)
+      content_block = valid ? { title: 'New Title' } : { title: '' }
+      post :update, id: @cb.slug, content_block: content_block
+    end
+
+    context "with a valid content block" do
+      it "updates the content block" do
+        do_update
+        assigns(:content_block).title.should eq('New Title')
+      end
+
+      it "redirects to the content blocks path" do
+        do_update
+        response.should redirect_to(manifest_content_blocks_path)
+      end
+    end
+
+    context "with an invalid content block" do
+      it "renders the edit template" do
+        do_update(false)
+        response.should render_template('edit')
+      end
+    end
+  end
+
   describe "#destroy" do
     it "destroys the specified content block" do
       expect { delete :destroy, id: @cb.slug }.to change(ContentBlock, :count).by(-1)

@@ -1,0 +1,30 @@
+thead {
+  border: 1px solid darken(#36c, 13.5);
+  border-bottom: none;
+}
+
+th, td {
+  padding: $base / 4 $base / 2;
+}
+
+th {
+  background: #36c;
+  @include background(linear-gradient(#36c, darken(#36c, 6.75)));
+  @include box-shadow(0 -1px 0 darken(#36c, 27) inset);
+  color: #fff;
+}
+
+tr:first-child td { @include box-shadow(0 1px 0 #f8f8f8 inset); }
+
+tr:nth-child(odd) {
+  background: #e8e8e8;
+}
+
+tr:nth-child(even) {
+  background: #fff;
+}
+
+tbody {
+  border: 1px solid #ccc;
+  border-top: none;
+}

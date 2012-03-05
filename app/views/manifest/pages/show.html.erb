@@ -5,7 +5,7 @@
 <% if @page.content_blocks.count > 0 %>
   <ul>
     <% @page.content_blocks.each do |c| %>
-      <li><%= link_to c.title, manifest_content_block_path(c) %></li>
+      <li><%= link_to c.title, edit_manifest_content_block_path(c) %></li>
     <% end %>
   </ul>
 <% else %>
