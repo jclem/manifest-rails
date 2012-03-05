@@ -5,6 +5,7 @@
   <title>Manifest</title>
 
   <%= stylesheet_link_tag 'manifest/main' %>
+  <%= javascript_include_tag 'manifest/main' %>
 
   <!-- Google Web Fonts -->
   <link href='http://fonts.googleapis.com/css?family=Oswald|PT+Sans:400,700' rel='stylesheet' type='text/css'>
@@ -17,6 +18,12 @@
       <ul>
         <li><%= link_to 'Pages', manifest_pages_path %></li>
         <li><%= link_to 'Content Blocks', manifest_content_blocks_path %></li>
+
+        <% Manifest.configuration.data_types.each do |d| %>
+          <li><%= link_to d[:nav_name], eval("#{d[:route]}") %></li>
+        <% end %>
+
+        <li><%= link_to 'Visit Site', '/' %></li>
       </ul>
     </nav>
   </div><!-- app-nav -->

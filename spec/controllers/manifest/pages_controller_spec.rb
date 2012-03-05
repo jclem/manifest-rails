@@ -41,9 +41,9 @@ describe Manifest::PagesController do
         expect { create_page }.to change(Page, :count).by(1)
       end
 
-      it "redirects to manifest_pages path" do
+      it "redirects to page path" do
         create_page
-        response.should redirect_to manifest_pages_path
+        response.should redirect_to manifest_page_path(assigns(:page))
       end
     end
 

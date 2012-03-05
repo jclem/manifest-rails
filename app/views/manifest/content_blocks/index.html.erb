@@ -1,24 +1,26 @@
 <h2>Content Blocks</h2>
 
-<table>
-  <thead>
-    <th>Title</th>
-    <th>Page</th>
-    <th>Created</th>
-    <th>Updated</th>
-  </thead>
+<% if @content_blocks.count > 0 %>
+  <table>
+    <thead>
+      <th>Title</th>
+      <th>Page</th>
+      <th>Created</th>
+      <th>Updated</th>
+    </thead>
 
-  <tbody>
-    <% @content_blocks.each do |c| %>
-      <tr>
-        <td><%= link_to c.title, edit_manifest_content_block_path(c) %></td>
-        <td><%= link_to c.page.title, manifest_page_path(c.page) %></td>
-        <td><%= c.created_at.to_s(:short) %></td>
-        <td><%= c.updated_at.to_s(:short) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <tbody>
+      <% @content_blocks.each do |c| %>
+        <tr>
+          <td><%= link_to c.title, manifest_content_block_path(c) %></td>
+          <td><%= link_to c.page.title, manifest_page_path(c.page) %></td>
+          <td><%= c.created_at.to_s(:short) %></td>
+          <td><%= c.updated_at.to_s(:short) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
 
 <div class='model-actions'>
   <%= link_to 'New Content Block', new_manifest_content_block_path %>

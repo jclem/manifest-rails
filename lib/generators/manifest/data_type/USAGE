@@ -1,0 +1,11 @@
+Description:
+    Generate custom data types for Manifest.
+
+Example:
+    rails generate manifest:data_type Thing attribute:type
+
+    This will create:
+        db/migrate/create_things.rb
+        app/views/manifest/things/index.html.erb
+        app/models/things.rb
+        app/controllers/manifest/things_controller.rb

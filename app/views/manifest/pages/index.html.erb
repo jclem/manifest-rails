@@ -1,10 +1,12 @@
 <h2>Pages</h2>
 
-<ul>
-  <% @pages.each do |p| %>
-    <li><%= link_to p.title, manifest_page_path(p) %></li>
-  <% end %>
-</ul>
+<% if @pages.count > 0 %>
+  <ul>
+    <% @pages.each do |p| %>
+      <li><%= link_to p.title, manifest_page_path(p) %></li>
+    <% end %>
+  </ul>
+<% end %>
 
 <div class='model-actions'>
   <%= link_to 'New Page', new_manifest_page_path %>

@@ -15,7 +15,7 @@ class Manifest::PagesController < Manifest::ManifestController
     @page = Page.new(params[:page])
 
     if @page.save
-      redirect_to manifest_pages_path
+      redirect_to manifest_page_path(@page)
     else
       render 'new'
     end

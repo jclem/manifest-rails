@@ -52,5 +52,11 @@ end
 def destroy_install_and_remove_db
   Dir.chdir("#{Rails.root}")
   %x{bundle exec rails d manifest:install Page}
-  FileUtils.rm_rf("#{Rails.root}/db")
+  FileUtils.rm_rf("#{Rails.root}/db/migrate")
+
+  Dir.glob("#{Rails.root}/db/*.sqlite3").each do |f|
+    FileUtils.rm(f)
+  end
+
+  FileUtils.rm("#{Rails.root}/db/schema.rb")
 end
