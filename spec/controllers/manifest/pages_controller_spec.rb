@@ -2,6 +2,8 @@ require 'spec_helper'
 
 describe Manifest::PagesController do
   before :each do
+    @editor = Factory(:editor)
+    session[:editor_id] = @editor.id
     @page = Factory(:page)
   end
 

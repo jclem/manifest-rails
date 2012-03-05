@@ -1,4 +1,4 @@
-class Manifest::SessionsController < Manifest::ManifestController
+class Manifest::SessionsController < ApplicationController
   layout 'manifest/sessions'
 
   def new

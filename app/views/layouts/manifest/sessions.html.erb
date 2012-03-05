@@ -1,0 +1,23 @@
+<!doctype html>
+
+<html>
+<head>
+  <%= stylesheet_link_tag 'manifest/manifest' %>
+  <%= javascript_include_tag 'manifest/manifest' %>
+  <%= csrf_meta_tags %>
+
+  <!-- Google Webfonts -->
+  <link href='http://fonts.googleapis.com/css?family=Droid+Sans:700,400' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+
+  <div id='manifest_content'>
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, id: "flash_#{name}" %>
+    <% end %>
+
+    <%= yield %>
+  </div>
+</body>
+</html>

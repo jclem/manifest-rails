@@ -1,4 +1,6 @@
 class Manifest::ContentBlocksController < Manifest::ManifestController
+  before_filter :authorize_admin, except: [:index, :edit, :update]
+
   def index
     @content_blocks = ContentBlock.all
   end
@@ -8,11 +10,11 @@ class Manifest::ContentBlocksController < Manifest::ManifestController
   end
 
   def new
-    @content_block = ContentBlock.new(params[:content_block])
+    @content_block = ContentBlock.new(content_block_params)
   end
 
   def create
-    @content_block = ContentBlock.new(params[:content_block])
+    @content_block = ContentBlock.new(content_block_params)
 
     if @content_block.save
       redirect_to manifest_content_blocks_path
@@ -28,7 +30,7 @@ class Manifest::ContentBlocksController < Manifest::ManifestController
   def update
     @content_block = ContentBlock.find(params[:id])
 
-    if @content_block.update_attributes(params[:content_block])
+    if @content_block.update_attributes(content_block_params)
       redirect_to manifest_content_blocks_path
     else
       render 'edit'
@@ -40,5 +42,15 @@ class Manifest::ContentBlocksController < Manifest::ManifestController
     @content_block.destroy
 
     redirect_to manifest_content_blocks_path
+  end
+
+  private
+
+  def content_block_params
+    if current_editor.admin?
+      params[:content_block]
+    else
+      params[:content_block].slice(:content)
+    end
   end
 end

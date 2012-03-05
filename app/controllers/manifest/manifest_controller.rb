@@ -1,5 +1,7 @@
 class Manifest::ManifestController < ApplicationController
-  layout 'manifest'
+  before_filter :authorize
+
+  layout 'manifest/manifest'
 
   private
 

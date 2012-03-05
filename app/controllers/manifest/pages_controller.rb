@@ -1,4 +1,6 @@
 class Manifest::PagesController < Manifest::ManifestController
+  before_filter :authorize_admin, except: [:index, :show]
+
   def index
     @pages = Page.all
   end
