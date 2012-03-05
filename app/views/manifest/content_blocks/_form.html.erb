@@ -16,6 +16,10 @@
   <%= f.text_field :title %>
   <%= f.collection_select :page_id, Page.all, :id, :title %>
   <%= f.check_box :allow_html %>
-  <%= f.text_area :content %>
+  <% if @content_block.allow_html? %>
+    <%= f.text_area :content, class: 'tinymce' %>
+  <% else %>
+    <%= f.text_area :content %>
+  <% end %>
   <%= f.submit %>
 <% end %>

@@ -5,6 +5,7 @@ class ActiveRecord::Base
 
     Manifest.configure do |config|
       config.data_types << { nav_name: ActiveSupport::Inflector.pluralize(self.to_s), route: route }
+      config.data_types.uniq!
     end
   end
 end

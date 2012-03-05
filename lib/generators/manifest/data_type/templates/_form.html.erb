@@ -1,0 +1,19 @@
+<%%= form_for [:manifest, @<%= name.underscore %>], builder: Manifest::LabelledFormBuilder do |f| %>
+  <% attributes.each do |attribute| %>
+    <% if [:integer, :decimal, :float, :string].include?(attribute.type) %>
+      <%%= f.text_field :<%= attribute.name %> %>
+    <% elsif [:boolean].include?(attribute.type) %>
+      <%%= f.check_box :<%= attribute.name %> %>
+    <% elsif [:text].include?(attribute.type) %>
+      <%%= f.text_area :<%= attribute.name %> %>
+    <% elsif [:date].include?(attribute.type) %>
+      <%%= f.date_select :<%= attribute.name %> %>
+    <% elsif [:datetime].include?(attribute.type) %>
+      <%%= f.datetime_select :<%= attribute.name %> %>
+    <% elsif [:time].include?(attribute.type) %>
+      <%%= f.time_select :<%= attribute.name %> %>
+    <% end %>
+  <% end %>
+
+  <%%= f.submit %>
+<%% end %>

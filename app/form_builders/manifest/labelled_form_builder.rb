@@ -1,5 +1,5 @@
 class Manifest::LabelledFormBuilder < ActionView::Helpers::FormBuilder
-  %w[text_field check_box collection_select check_box text_area].each do |method_name|
+  %w[text_field check_box collection_select check_box text_area date_select datetime_select time_select].each do |method_name|
     define_method(method_name) do |name, *args|
       classes = %w[field]
 

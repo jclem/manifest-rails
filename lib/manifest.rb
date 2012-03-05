@@ -3,6 +3,7 @@ require "manifest/engine"
 require 'friendly_id'
 require 'sass-rails'
 require 'compass-rails'
+require 'tinymce-rails'
 
 module Manifest
   def self.configure

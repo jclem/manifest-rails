@@ -8,9 +8,20 @@ class Manifest::DataTypeGenerator < ActiveRecord::Generators::Base
     migration_template 'migration.rb', "#{Rails.root}/db/migrate/create_#{table_name}.rb"
   end
 
+  def generate_data_type_form_partial
+    template '_form.html.erb', "#{Rails.root}/app/views/manifest/#{table_name}/_form.html.erb"
+  end
+
+  def generate_data_type_new_view
+    template 'new.html.erb', "#{Rails.root}/app/views/manifest/#{table_name}/new.html.erb"
+  end
+
+  def generate_data_type_edit_view
+    template 'edit.html.erb', "#{Rails.root}/app/views/manifest/#{table_name}/edit.html.erb"
+  end
+
   def create_index_view
-    plural_name = ActiveSupport::Inflector.pluralize(name)
-    template 'index.html.erb', "#{Rails.root}/app/views/manifest/#{plural_name.underscore}/index.html.erb"
+    template 'index.html.erb', "#{Rails.root}/app/views/manifest/#{table_name}/index.html.erb"
   end
 
   def create_manifest_namespace_in_routes_if_it_does_not_exist

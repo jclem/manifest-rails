@@ -1,1 +1,5 @@
 <h2><%= ActiveSupport::Inflector.pluralize(name) %></h2>
+
+<div class='model-actions'>
+  <%%= link_to 'New <%= name %>', new_manifest_<%= name.underscore %>_path %>
+</div>
