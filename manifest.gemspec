@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.summary     = "Manifest is a Rails Engine content management system"
   s.description = "Manifest allows for the creation of simple content management with support for easy custom data types. It attempts to preserve the Rails way of working where possible."
 
-  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
+  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
 
   s.add_dependency "rails", "~> 3.2.2"
   s.add_dependency 'friendly_id'
