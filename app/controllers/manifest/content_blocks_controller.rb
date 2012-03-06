@@ -13,6 +13,7 @@ class Manifest::ContentBlocksController < Manifest::ManifestController
     @content_block = ContentBlock.new(content_block_params)
 
     if @content_block.save
+      expire_all_pages
       redirect_to manifest_content_blocks_path
     else
       render 'new'
@@ -27,6 +28,7 @@ class Manifest::ContentBlocksController < Manifest::ManifestController
     @content_block = ContentBlock.find(params[:id])
 
     if @content_block.update_attributes(content_block_params)
+      expire_all_pages
       redirect_to manifest_content_blocks_path
     else
       render 'edit'
@@ -36,6 +38,8 @@ class Manifest::ContentBlocksController < Manifest::ManifestController
   def destroy
     @content_block = ContentBlock.find(params[:id])
     @content_block.destroy
+
+    expire_all_pages
 
     redirect_to manifest_content_blocks_path
   end
