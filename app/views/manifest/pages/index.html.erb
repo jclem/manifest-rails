@@ -8,6 +8,8 @@
   </ul>
 <% end %>
 
-<div class='model-actions'>
-  <%= link_to 'New Page', new_manifest_page_path %>
-</div><!-- model-actions -->
+<% if current_editor.admin? %>
+  <div class='model-actions'>
+    <%= link_to 'New Page', new_manifest_page_path %>
+  </div><!-- model-actions -->
+<% end %>

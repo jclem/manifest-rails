@@ -2,22 +2,27 @@
 
 <html>
 <head>
-  <%= stylesheet_link_tag 'manifest/manifest' %>
-  <%= javascript_include_tag 'manifest/manifest' %>
+  <title>Manifest</title>
+
+  <%= stylesheet_link_tag 'manifest/sessions' %>
+  <%= stylesheet_link_tag 'manifest/main' %>
   <%= csrf_meta_tags %>
 
   <!-- Google Webfonts -->
-  <link href='http://fonts.googleapis.com/css?family=Droid+Sans:700,400' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Oswald|PT+Sans:400,700' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
+  <div class='app-nav'>
+    <h1>Manifest</h1>
+  </div><!-- app-nav -->
 
-  <div id='manifest_content'>
+  <div class='app-content'>
     <% flash.each do |name, msg| %>
       <%= content_tag :div, msg, id: "flash_#{name}" %>
     <% end %>
 
     <%= yield %>
-  </div>
+  </div><!-- app-content -->
 </body>
 </html>

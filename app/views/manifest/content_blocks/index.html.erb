@@ -12,7 +12,7 @@
     <tbody>
       <% @content_blocks.each do |c| %>
         <tr>
-          <td><%= link_to c.title, manifest_content_block_path(c) %></td>
+          <td><%= link_to c.title, edit_manifest_content_block_path(c) %></td>
           <td><%= link_to c.page.title, manifest_page_path(c.page) %></td>
           <td><%= c.created_at.to_s(:short) %></td>
           <td><%= c.updated_at.to_s(:short) %></td>
@@ -22,6 +22,8 @@
   </table>
 <% end %>
 
-<div class='model-actions'>
-  <%= link_to 'New Content Block', new_manifest_content_block_path %>
-</div><!-- model-actions -->
+<% if current_editor.admin? %>
+  <div class='model-actions'>
+    <%= link_to 'New Content Block', new_manifest_content_block_path %>
+  </div><!-- model-actions -->
+<% end %>

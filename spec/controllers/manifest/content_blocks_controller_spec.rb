@@ -19,13 +19,6 @@ describe Manifest::ContentBlocksController do
     end
   end
 
-  describe "#show" do
-    it "shows the selected content block" do
-      get :show, id: @cb.slug
-      assigns(:content_block).should be_an_instance_of ContentBlock
-    end
-  end
-
   describe "#new" do
     it "prepares a new content block for creation" do
       get :new

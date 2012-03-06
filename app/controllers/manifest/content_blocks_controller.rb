@@ -5,10 +5,6 @@ class Manifest::ContentBlocksController < Manifest::ManifestController
     @content_blocks = ContentBlock.all
   end
 
-  def show
-    @content_block = ContentBlock.find(params[:id])
-  end
-
   def new
     @content_block = ContentBlock.new(content_block_params)
   end

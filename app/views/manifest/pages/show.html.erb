@@ -13,7 +13,7 @@
     <tbody>
       <% @page.content_blocks.each do |c| %>
         <tr>
-          <td><%= link_to c.title, manifest_content_block_path(c) %></td>
+          <td><%= link_to c.title, edit_manifest_content_block_path(c) %></td>
           <td><%= c.created_at.to_s(:short) %></td>
           <td><%= c.updated_at.to_s(:short) %></td>
         </tr>
@@ -21,8 +21,10 @@
     </tbody>
   </table>
 <% else %>
-  <p>This page has no content blocks of its own. <%= link_to 'Add one!', new_manifest_content_block_path(content_block: { page_id: @page.id }) %></p>
+  <p>This page has no content blocks of its own. <%= link_to('Add one!', new_manifest_content_block_path(content_block: { page_id: @page.id })) if current_editor.admin? %></p>
 <% end %>
 
-<%= link_to 'Edit Page', edit_manifest_page_path(@page) %>
-<%= link_to 'Delete Page', manifest_page_path(@page), method: :delete, confirm: "Are you sure you want to delete page \"#{@page.title}\"?" %>
+<% if current_editor.admin? %>
+  <%= link_to 'Edit Page', edit_manifest_page_path(@page) %>
+  <%= link_to 'Delete Page', manifest_page_path(@page), method: :delete, confirm: "Are you sure you want to delete page \"#{@page.title}\"?" %>
+<% end %>

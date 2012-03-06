@@ -6,6 +6,7 @@
 
   <%= stylesheet_link_tag 'manifest/main' %>
   <%= javascript_include_tag 'manifest/main' %>
+  <%= csrf_meta_tags %>
 
   <!-- Google Web Fonts -->
   <link href='http://fonts.googleapis.com/css?family=Oswald|PT+Sans:400,700' rel='stylesheet' type='text/css'>
@@ -23,7 +24,7 @@
           <li><%= link_to d[:nav_name], eval("#{d[:route]}") %></li>
         <% end %>
 
-        <li><%= link_to 'Visit Site', '/' %></li>
+        <li><%= link_to 'Visit Site', '/', target: '_blank' %></li>
         <li><%= link_to 'Log Out', manifest_logout_path %></li>
       </ul>
     </nav>

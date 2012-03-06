@@ -4,6 +4,7 @@ label {
 }
 
 input[type='text'],
+input[type='password'],
 textarea {
   width: $base * 14;
   font-size: inherit;
