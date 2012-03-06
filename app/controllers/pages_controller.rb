@@ -4,6 +4,11 @@ class PagesController < ApplicationController
   caches_page :show
 
   def show
-    render @page.slug if @page = Page.find(params[:id])
+    if @page = Page.find(params[:id])
+      @content_blocks = @page.content_blocks
+      render @page.slug
+    else
+      raise ActiveRecord::RecordNotFound
+    end
   end
 end
