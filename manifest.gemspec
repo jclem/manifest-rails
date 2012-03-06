@@ -21,7 +21,6 @@ Gem::Specification.new do |s|
   s.add_dependency 'compass-rails'
   s.add_dependency 'bcrypt-ruby', '~> 3.0.0'
   s.add_dependency 'tinymce-rails'
-  # s.add_dependency "jquery-rails"
 
   s.add_development_dependency "sqlite3"
   s.add_development_dependency 'rspec-rails'
