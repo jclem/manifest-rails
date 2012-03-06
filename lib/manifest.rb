@@ -15,10 +15,11 @@ module Manifest
   end
 
   class Configuration
-    attr_accessor :data_types
+    attr_accessor :data_types, :app_name
 
     def initialize
       @data_types = []
+      @app_name = 'Manifest'
     end
   end
 end
