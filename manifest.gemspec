@@ -9,9 +9,9 @@ Gem::Specification.new do |s|
   s.version     = Manifest::VERSION
   s.authors     = ["Jonathan Clem"]
   s.email       = ["j@jclem.net"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of Manifest."
-  s.description = "TODO: Description of Manifest."
+  s.homepage    = "http://github.com/jclem/manifest-rails"
+  s.summary     = "Manifest is a Rails Engine content management system"
+  s.description = "Manifest allows for the creation of simple content management with support for easy custom data types. It attempts to preserve the Rails way of working where possible."
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
 
