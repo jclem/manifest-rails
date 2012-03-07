@@ -9,7 +9,6 @@ require "sprockets/railtie"
 # require "rails/test_unit/railtie"
 
 Bundler.require
-require "manifest"
 
 module Dummy
   class Application < Rails::Application

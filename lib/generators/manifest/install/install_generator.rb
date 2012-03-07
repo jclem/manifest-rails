@@ -34,5 +34,14 @@ class Manifest::InstallGenerator < ActiveRecord::Generators::Base
   def create_public_layout
     create_file 'app/views/layouts/public.html.erb'
   end
+
+  def require_manifest_in_application_rb
+    application_file = "#{Rails.root}/config/application.rb"
+
+    File.open(application_file, 'r') do |f|
+      sentinel = /Bundler.require/
+      inject_into_file application_file, "require 'manifest'\n\n", before: sentinel
+    end
+  end
 end
 
