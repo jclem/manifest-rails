@@ -1,5 +1,8 @@
 require 'rails/generators/active_record'
 
+# Creates templates and migrations for custom Manifest data types.
+# Example:
+#   rails generate manifest:data_type Person first_name:string last_name:string
 class Manifest::DataTypeGenerator < ActiveRecord::Generators::Base
   source_root File.expand_path('../templates', __FILE__)
   argument :attributes, type: :array, default: [], banner: 'field:type field:type'

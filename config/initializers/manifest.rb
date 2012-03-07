@@ -1,4 +1,6 @@
 module Manifest
+  # Searches for models containing the {ActiveRecord::Base#data_type_for_manifest}
+  # and touches them so that #data_type_for_manifest is called at app initialization.
   def self.add_app_models_to_manifest_data_types
     models = Dir.glob("#{Rails.root}/app/models/*")
 

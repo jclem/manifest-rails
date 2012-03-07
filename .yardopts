@@ -1,0 +1,3 @@
+--exclude lib/generators/manifest/data_type/templates
+--exclude lib/generators/manifest/install/templates
+--private

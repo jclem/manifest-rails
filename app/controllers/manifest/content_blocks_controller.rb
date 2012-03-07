@@ -1,3 +1,4 @@
+# Controls CRUD actions for {ContentBlock} objects.
 class Manifest::ContentBlocksController < Manifest::ManifestController
   before_filter :authorize_admin, except: [:index, :edit, :update]
 
@@ -46,6 +47,7 @@ class Manifest::ContentBlocksController < Manifest::ManifestController
 
   private
 
+  # Non-admins may only edit the content of a {ContentBlock}.
   def content_block_params
     if current_editor.admin?
       params[:content_block]

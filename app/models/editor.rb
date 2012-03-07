@@ -1,3 +1,4 @@
+# Used for authentication.
 class Editor < ActiveRecord::Base
   has_secure_password
 

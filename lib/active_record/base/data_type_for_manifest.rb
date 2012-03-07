@@ -1,4 +1,5 @@
 class ActiveRecord::Base
+  # Adds this instance of {ActiveRecord::Base} to Manifest.configuration.data_types.
   def self.data_type_for_manifest
     nav_name = ActiveSupport::Inflector.pluralize(self.to_s)
     route = "manifest_#{nav_name.underscore}_path"

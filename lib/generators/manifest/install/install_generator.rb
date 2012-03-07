@@ -1,5 +1,9 @@
 require 'rails/generators/active_record'
 
+# Creates templates and migrations for the initial Manifest install.
+# Example:
+#   rails generate manifest:install Page
+# The "Page" argument is completely arbitrary.
 class Manifest::InstallGenerator < ActiveRecord::Generators::Base
   source_root File.expand_path('../templates', __FILE__)
 

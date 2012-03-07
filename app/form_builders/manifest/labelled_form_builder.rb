@@ -1,3 +1,4 @@
+# Helper for quickly building forms and templates without having to rewrite the same HTML element wrappers.
 class Manifest::LabelledFormBuilder < ActionView::Helpers::FormBuilder
   %w[text_field check_box collection_select check_box text_area date_select datetime_select time_select].each do |method_name|
     define_method(method_name) do |name, *args|

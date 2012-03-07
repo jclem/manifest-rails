@@ -1,3 +1,4 @@
+# Controls CRUD actions for {Page}. Only accessible by admin {Editor}s.
 class Manifest::PagesController < Manifest::ManifestController
   before_filter :authorize_admin, except: [:index, :show]
 

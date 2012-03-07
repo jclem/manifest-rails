@@ -1,3 +1,4 @@
+# Creates or destroys {Editor} sessions.
 class Manifest::SessionsController < ApplicationController
   layout 'manifest/sessions'
 
