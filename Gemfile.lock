@@ -137,6 +137,7 @@ DEPENDENCIES
   factory_girl_rails
   jquery-rails
   manifest-rails!
+  rake
   rspec-rails
   sqlite3
   yard
