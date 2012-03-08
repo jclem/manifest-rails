@@ -31,4 +31,8 @@ $(function() {
       container: '.app-content'
     })
   });
+
+  $(document).live('pjax:success', function () {
+    $('.tinymce').tinymce({});
+  });
 })
