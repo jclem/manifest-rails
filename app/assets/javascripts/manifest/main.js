@@ -14,4 +14,8 @@ $(function() {
       $('#content_block_content').attr('aria-hidden', 'false');
     }
   })
+
+  $(".nav-select").change(function() {
+    window.location = $(this).find("option:selected").val();
+  });
 })

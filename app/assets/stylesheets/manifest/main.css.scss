@@ -23,8 +23,11 @@ h1 {
   font: 200% 'Oswald';
   text-align: center;
   text-transform: uppercase;
-
-  /* &:after { content: ':'; } */
+  
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
 }
 
 h3 {
@@ -66,6 +69,8 @@ strong, label { font-weight: bold; }
   }
 }
 
+.app-nav .nav-select { display: none; }
+
 .app-content {
   margin-left: $base * 10;
   padding: $base * 2 $base;
@@ -82,3 +87,4 @@ strong, label { font-weight: bold; }
 
 @import 'forms';
 @import 'tables';
+@import 'response';

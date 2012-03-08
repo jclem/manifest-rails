@@ -9,8 +9,10 @@ label {
 
 input[type='text'],
 input[type='password'],
+input[type='email'],
 textarea {
   width: $base * 14;
+  max-width: 100%;
   font-size: inherit;
   border: 1px solid #ccc;
   height: $base;

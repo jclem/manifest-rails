@@ -8,14 +8,16 @@
   <%= javascript_include_tag 'manifest/main' %>
   <%= csrf_meta_tags %>
 
+  <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
+
   <!-- Google Web Fonts -->
   <link href='http://fonts.googleapis.com/css?family=Oswald|PT+Sans:400,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
   <div class='app-nav'>
-    <h1><%= Manifest.configuration.app_name %></h1>
+    <h1><%= link_to Manifest.configuration.app_name, manifest_path %></h1>
 
-    <nav>
+    <nav class='list'>
       <ul>
         <li><%= link_to 'Pages', manifest_pages_path %></li>
         <li><%= link_to 'Content Blocks', manifest_content_blocks_path %></li>
@@ -28,6 +30,20 @@
         <li><%= link_to 'Log Out', manifest_logout_path %></li>
       </ul>
     </nav>
+
+    <select class='nav-select'>
+      <option value='' selected='selected'>Select</option>
+
+      <option value='<%= manifest_pages_path %>'>Pages</option>
+      <option value='<%= manifest_content_blocks_path %>'>Content Blocks</option>
+
+      <% Manifest.configuration.data_types.each do |d| %>
+        <option value='<%= eval("#{d[:route]}") %>'><%= d[:nav_name] %></option>
+      <% end %>
+
+      <option value='/'>Visit Site</option>
+      <option value='<%= manifest_logout_path %>'>Log Out</option>
+    </select>
   </div><!-- app-nav -->
 
   <div class='app-content'>
