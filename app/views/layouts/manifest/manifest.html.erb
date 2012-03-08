@@ -19,11 +19,11 @@
 
     <nav class='list'>
       <ul>
-        <li><%= link_to 'Pages', manifest_pages_path, class: 'in-app-nav' %></li>
-        <li><%= link_to 'Content Blocks', manifest_content_blocks_path, class: 'in-app-nav' %></li>
+        <li><%= link_to 'Pages', manifest_pages_path %></li>
+        <li><%= link_to 'Content Blocks', manifest_content_blocks_path %></li>
 
         <% Manifest.configuration.data_types.each do |d| %>
-          <li><%= link_to d[:nav_name], eval("#{d[:route]}"), class: 'in-app-nav' %></li>
+          <li><%= link_to d[:nav_name], eval("#{d[:route]}") %></li>
         <% end %>
 
         <li><%= link_to 'Visit Site', '/', target: '_blank', :"data-skip-pjax" => true %></li>
