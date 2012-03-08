@@ -19,7 +19,7 @@ class Manifest::<%= ActiveSupport::Inflector.pluralize(name) %>Controller < Mani
     @<%= name.underscore %> = <%= name %>.new(params[:<%= name.underscore %>])
 
     if @<%= name.underscore %>.save
-      redirect_to manifest_<%= plural_name.underscore %>_path(@<%= name.underscore %>)
+      redirect_to manifest_<%= plural_name.underscore %>_path
     else
       render 'new'
     end

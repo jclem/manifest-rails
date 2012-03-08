@@ -1,7 +1,7 @@
 <h2><%= table_name %></h2>
 
 <%% if @<%= table_name %>.count > 0 %>
-<table>
+<table id='table:<%%= controller_name %>'>
   <thead>
     <% attributes.each do |attribute| -%>
       <th><%= attribute.name.humanize %></th>

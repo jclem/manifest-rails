@@ -21,4 +21,14 @@ $(function() {
   });
 
   $('a:not([data-remote]):not([data-behavior]):not([data-skip-pjax])').pjax('.app-content', { timeout: 10000 });
+
+  $('tbody tr').live('click', function() {
+    controller = $(this).parent().parent().attr('id').split(':').pop();
+    id = $(this).attr('id').split('_').pop();
+
+    $.pjax({
+      url: '/manifest/' + controller + '/' + id + '/edit',
+      container: '.app-content'
+    })
+  });
 })

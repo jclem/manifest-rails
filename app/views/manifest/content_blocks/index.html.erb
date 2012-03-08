@@ -1,7 +1,7 @@
 <h2>Content Blocks</h2>
 
 <% if @content_blocks.count > 0 %>
-  <table>
+  <table id='table:<%= controller_name %>'>
     <thead>
       <th>Title</th>
       <th>Page</th>
@@ -12,8 +12,8 @@
     <tbody>
       <% @content_blocks.each do |c| %>
         <%= content_tag_for(:tr, c) do %>
-          <td><%= link_to c.title, edit_manifest_content_block_path(c) %></td>
-          <td><%= link_to c.page.title, manifest_page_path(c.page) %></td>
+          <td><%= c.title %></td>
+          <td><%= c.page.title %></td>
           <td><%= c.created_at.to_s(:short) %></td>
           <td><%= c.updated_at.to_s(:short) %></td>
         <% end %>

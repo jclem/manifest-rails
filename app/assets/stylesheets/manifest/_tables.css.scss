@@ -26,6 +26,13 @@ tr:nth-child(even) {
   background: #fff;
 }
 
+tbody tr:hover {
+  background: lighten($accent, 10);
+  background: $accent;
+  cursor: pointer;
+  color: white;
+}
+
 tbody {
   border: 1px solid #ccc;
   border-top: none;
