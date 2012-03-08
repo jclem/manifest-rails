@@ -12,11 +12,11 @@
 
     <tbody>
       <% @page.content_blocks.each do |c| %>
-        <tr>
+        <%= content_tag_for(:tr, c) do %>
           <td><%= link_to c.title, edit_manifest_content_block_path(c) %></td>
           <td><%= c.created_at.to_s(:short) %></td>
           <td><%= c.updated_at.to_s(:short) %></td>
-        </tr>
+        <% end %>
       <% end %>
     </tbody>
   </table>

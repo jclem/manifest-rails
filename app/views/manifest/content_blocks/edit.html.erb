@@ -1,3 +1,5 @@
 <h2>Content Blocks: Edit &ldquo;<%= @content_block.title %>&rdquo;</h2>
 
 <%= render 'form' %>
+
+<%= link_to 'Delete Content Block', [:manifest, @content_block], method: :delete, confirm: "Are you sure you want to delete content block #{@content_block.title}?" %>

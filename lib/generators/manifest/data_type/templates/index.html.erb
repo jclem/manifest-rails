@@ -1,4 +1,24 @@
-<h2><%= ActiveSupport::Inflector.pluralize(name) %></h2>
+<h2><%= table_name %></h2>
+
+<%% if @<%= table_name %>.count > 0 %>
+<table>
+  <thead>
+    <% attributes.each do |attribute| -%>
+      <th><%= attribute.name.humanize %></th>
+    <% end -%>
+  </thead>
+
+  <tbody>
+    <%% @<%= table_name %>.each do |<%= table_name[0] %>| %>
+      <%%= content_tag_for(:tr, <%= table_name[0] %>) do %>
+        <% attributes.each do |attribute| -%>
+          <td><%%= <%= table_name[0] %>.<%= attribute.name %> %></td>
+        <% end -%>
+      <%% end %>
+    <%% end %>
+  </tbody>
+</table>
+<%% end %>
 
 <div class='model-actions'>
   <%%= link_to 'New <%= name %>', new_manifest_<%= name.underscore %>_path %>
