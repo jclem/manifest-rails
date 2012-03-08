@@ -1,5 +1,5 @@
 class Manifest::<%= ActiveSupport::Inflector.pluralize(name) %>Controller < Manifest::ManifestController
-  layout 'manifest/manifest'
+  layout :set_layout
 
   # Add more actions to me!
 

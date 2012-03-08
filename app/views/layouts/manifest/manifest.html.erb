@@ -19,15 +19,15 @@
 
     <nav class='list'>
       <ul>
-        <li><%= link_to 'Pages', manifest_pages_path %></li>
-        <li><%= link_to 'Content Blocks', manifest_content_blocks_path %></li>
+        <li><%= link_to 'Pages', manifest_pages_path, class: 'in-app-nav' %></li>
+        <li><%= link_to 'Content Blocks', manifest_content_blocks_path, class: 'in-app-nav' %></li>
 
         <% Manifest.configuration.data_types.each do |d| %>
-          <li><%= link_to d[:nav_name], eval("#{d[:route]}") %></li>
+          <li><%= link_to d[:nav_name], eval("#{d[:route]}"), class: 'in-app-nav' %></li>
         <% end %>
 
-        <li><%= link_to 'Visit Site', '/', target: '_blank' %></li>
-        <li><%= link_to 'Log Out', manifest_logout_path %></li>
+        <li><%= link_to 'Visit Site', '/', target: '_blank', :"data-skip-pjax" => true %></li>
+        <li><%= link_to 'Log Out', manifest_logout_path, :"data-skip-pjax" => true %></li>
       </ul>
     </nav>
 
@@ -47,6 +47,7 @@
   </div><!-- app-nav -->
 
   <div class='app-content'>
+    <div class='loader' style='display:none'>hi</div>
     <%= yield %>
   </div><!-- app-content -->
 </body>

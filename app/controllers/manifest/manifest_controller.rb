@@ -31,4 +31,12 @@ class Manifest::ManifestController < ApplicationController
       expire_page "/#{p.slug}.html"
     end
   end
+
+  def set_layout
+    if request.headers['X-PJAX']
+      false
+    else
+      'manifest/manifest'
+    end
+  end
 end

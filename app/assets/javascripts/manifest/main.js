@@ -1,6 +1,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require tinymce-jquery
+//= require_tree .
 
 $(function() {
   $('.tinymce').tinymce({});
@@ -18,4 +19,6 @@ $(function() {
   $(".nav-select").change(function() {
     window.location = $(this).find("option:selected").val();
   });
+
+  $('a:not([data-remote]):not([data-behavior]):not([data-skip-pjax])').pjax('.app-content', { timeout: 10000 });
 })

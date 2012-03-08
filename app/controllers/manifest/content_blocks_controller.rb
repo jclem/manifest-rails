@@ -2,6 +2,8 @@
 class Manifest::ContentBlocksController < Manifest::ManifestController
   before_filter :authorize_admin, except: [:index, :edit, :update]
 
+  layout :set_layout
+
   def index
     @content_blocks = ContentBlock.all
   end
