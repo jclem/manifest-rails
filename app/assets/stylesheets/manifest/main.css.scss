@@ -9,6 +9,8 @@ body {
   font: 100%/1.4285 'PT Sans';
 }
 
+h1, h2, h3 { @include text-shadow(0 1px 0 white); }
+
 h1, h2 {
   margin-bottom: $base;
   font: 200% 'Oswald';
@@ -23,6 +25,11 @@ h1 {
   text-transform: uppercase;
 
   /* &:after { content: ':'; } */
+}
+
+h3 {
+  font-size: 150%;
+  margin-bottom: 16px;
 }
 
 p {
@@ -62,6 +69,11 @@ strong, label { font-weight: bold; }
 .app-content {
   margin-left: $base * 10;
   padding: $base * 2 $base;
+
+  ul {
+    margin-left: 1em;
+    list-style: disc;
+  }
 }
 
 .model-actions {
