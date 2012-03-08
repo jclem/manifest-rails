@@ -2,7 +2,6 @@ def generate_install_and_migrate
   Dir.chdir(File.expand_path("../dummy", __FILE__))
   %x{bundle exec rails g manifest:install Page}
   %x{bundle exec rake db:migrate RAILS_ENV=development}
-  %x{bundle exec rake db:test:prepare}
   Dir.chdir(File.expand_path("../..", __FILE__))
 end
 
@@ -20,14 +19,6 @@ require 'factory_girl_rails'
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
 RSpec.configure do |config|
-  # ## Mock Framework
-  #
-  # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:
-  #
-  # config.mock_with :mocha
-  # config.mock_with :flexmock
-  # config.mock_with :rr
-
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
@@ -43,6 +34,9 @@ RSpec.configure do |config|
 
   config.filter_run :focus => true
   config.run_all_when_everything_filtered = true
+
+  config.before(:suite) do
+  end
 
   config.after(:suite) do
     destroy_install_and_remove_db
