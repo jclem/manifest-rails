@@ -43,5 +43,12 @@ class Manifest::InstallGenerator < ActiveRecord::Generators::Base
       inject_into_file application_file, "require 'manifest'\n\n", before: sentinel
     end
   end
+
+  def inject_assets_for_precompiling_in_application_rb
+    line = "    config.assets.precompile += ['manifest/main.css', 'manifest/sessions.css', 'manifest/main.js']\n"
+    application_file = "#{Rails.root}/config/application.rb"
+    sentinel = /^ {2}end\nend/
+    inject_into_file application_file, line, before: sentinel
+  end
 end
 
