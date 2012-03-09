@@ -65,4 +65,9 @@ textarea {
     position: absolute;
     left: -24px;
   }
+
+  @media screen and (max-width: 480px) {
+    width: 100%;
+    @include box-sizing(border-box);
+  }
 }

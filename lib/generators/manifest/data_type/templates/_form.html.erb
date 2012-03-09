@@ -1,3 +1,5 @@
+<%%= render 'manifest/shared/form_error_list', object: @<%= name.underscore %> %>
+
 <%%= form_for [:manifest, @<%= name.underscore %>], builder: Manifest::LabelledFormBuilder do |f| %>
   <% attributes.each do |attribute| %>
     <% if [:integer, :decimal, :float, :string].include?(attribute.type) %>

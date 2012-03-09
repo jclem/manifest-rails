@@ -1,0 +1,13 @@
+<% if object.errors.any? %>
+  <div class='form-errors'>
+    <h3>Whoops!</h3>
+
+    <p>Please correct the following errors:</p>
+
+    <ul>
+      <% object.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

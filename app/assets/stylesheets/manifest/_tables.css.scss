@@ -1,51 +1,52 @@
-table {
+table.resource_table {
   margin-bottom: $base;
   
   @media screen and (max-width: 480px) {
     width: 100%;
   }
-}
 
-thead {
-  border: 1px solid darken(#36c, 13.5);
-  border-bottom: none;
-}
+  thead {
+    border: 1px solid darken(#36c, 13.5);
+    border-bottom: none;
+  }
 
-th, td {
-  padding: $base / 4 $base / 2;
+  th, td {
+    padding: $base / 4 $base / 2;
 
-  &.minor {
-    @media screen and (max-width: 480px) {
-      display: none;
+    &.minor {
+      @media screen and (max-width: 480px) {
+        display: none;
+      }
     }
+  }
+
+  th {
+    background: #36c;
+    @include background(linear-gradient(#36c, darken(#36c, 6.75)));
+    @include box-shadow(0 -1px 0 darken(#36c, 27) inset);
+    color: #fff;
+  }
+
+  tr:first-child td { @include box-shadow(0 1px 0 #f8f8f8 inset); }
+
+  tr:nth-child(odd) {
+    background: #e8e8e8;
+  }
+
+  tr:nth-child(even) {
+    background: #fff;
+  }
+
+  tbody tr:hover {
+    background: lighten($accent, 10);
+    background: $accent;
+    cursor: pointer;
+    color: white;
+  }
+
+  tbody {
+    border: 1px solid #ccc;
+    border-top: none;
   }
 }
 
-th {
-  background: #36c;
-  @include background(linear-gradient(#36c, darken(#36c, 6.75)));
-  @include box-shadow(0 -1px 0 darken(#36c, 27) inset);
-  color: #fff;
-}
-
-tr:first-child td { @include box-shadow(0 1px 0 #f8f8f8 inset); }
-
-tr:nth-child(odd) {
-  background: #e8e8e8;
-}
-
-tr:nth-child(even) {
-  background: #fff;
-}
-
-tbody tr:hover {
-  background: lighten($accent, 10);
-  background: $accent;
-  cursor: pointer;
-  color: white;
-}
-
-tbody {
-  border: 1px solid #ccc;
-  border-top: none;
-}

@@ -1,16 +1,4 @@
-<% if @content_block.errors.any? %>
-  <div class='form-errors'>
-    <h3>Whoops!</h3>
-
-    <p>Please correct the following errors:</p>
-
-    <ul>
-      <% @content_block.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
-  </div><!-- form-errors -->
-<% end %>
+<%= render 'manifest/shared/form_error_list', object: @content_block %>
 
 <%= form_for [:manifest, @content_block], builder: Manifest::LabelledFormBuilder do |f| %>
   <% if current_editor.admin? %>
