@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    manifest-rails (0.2.3)
+    manifest-rails (0.2.4)
       bcrypt-ruby (~> 3.0.0)
       compass-rails
       friendly_id
