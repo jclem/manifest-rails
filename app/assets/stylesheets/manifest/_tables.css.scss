@@ -1,4 +1,10 @@
-table { margin-bottom: $base; }
+table {
+  margin-bottom: $base;
+  
+  @media screen and (max-width: 480px) {
+    width: 100%;
+  }
+}
 
 thead {
   border: 1px solid darken(#36c, 13.5);
@@ -7,6 +13,12 @@ thead {
 
 th, td {
   padding: $base / 4 $base / 2;
+
+  &.minor {
+    @media screen and (max-width: 480px) {
+      display: none;
+    }
+  }
 }
 
 th {

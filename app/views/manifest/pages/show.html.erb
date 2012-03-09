@@ -6,16 +6,16 @@
   <table id='table:content_blocks'>
     <thead>
       <th>Title</th>
-      <th>Created</th>
-      <th>Updated</th>
+      <th class='minor'>Created</th>
+      <th class='minor'>Updated</th>
     </thead>
 
     <tbody>
       <% @page.content_blocks.each do |c| %>
         <%= content_tag_for(:tr, c) do %>
           <td><%= c.title %></td>
-          <td><%= c.created_at.to_s(:short) %></td>
-          <td><%= c.updated_at.to_s(:short) %></td>
+          <td class='minor'><%= c.created_at.to_s(:short) %></td>
+          <td class='minor'><%= c.updated_at.to_s(:short) %></td>
         <% end %>
       <% end %>
     </tbody>
