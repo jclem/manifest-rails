@@ -4,25 +4,9 @@
 //= require_tree .
 
 $(function() {
-  $.fn.touchBind = function(fn) {
-    $(this).live('click', function() {
-      return fn.call(this);
-    })
-
-    $(this).live('touchmove', function() {
-      $(this).addClass('dragged');
-    });
-
-    $(this).live('touchend', function() {
-      if (!$(this).hasClass('dragged')) fn.call(this);
-      $(this).removeClass('dragged');
-    });
-
-    return this;
-  }
-
   $('.tinymce').tinymce({});
 
+  // Toggle tinyMCE when checkbox value changes.
   $('#content_block_allow_html').live('change', function() {
     if ($(this).is(':checked')) {
       $('#content_block_content').tinymce({});
@@ -40,9 +24,9 @@ $(function() {
     })
   });
 
-  $('a:not([data-remote]):not([data-behavior]):not([data-skip-pjax])').pjax('.app-content', { timeout: 10000 });
+  $('a:not([data-remote]):not([data-behavior]):not([data-skip-pjax])').pjax('.app-content', { timeout: 1000 });
 
-  $('tbody tr').touchBind(function() {
+  $('.app-content').on('click', 'tbody tr', function() {
     controller = $(this).parent().parent().attr('id').split(':').pop();
     id = $(this).attr('id').split('_').pop();
 
