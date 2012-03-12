@@ -2,4 +2,6 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Delete Content Block', [:manifest, @content_block], method: :delete, confirm: "Are you sure you want to delete content block #{@content_block.title}?" %>
+<% if current_editor.admin? %>
+  <%= link_to 'Delete Content Block', [:manifest, @content_block], method: :delete, confirm: "Are you sure you want to delete content block #{@content_block.title}?" %>
+<% end %>
