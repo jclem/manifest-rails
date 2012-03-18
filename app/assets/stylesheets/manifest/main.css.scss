@@ -5,7 +5,8 @@ $base: 22.856px;
 $accent: #36c;
 
 body { 
-  background: #f8f8f8;
+  background: #f8f8f8 image-url('manifest/sketch.png');
+  color: #333;
   font: 100%/1.4285 'PT Sans';
 }
 
@@ -19,7 +20,6 @@ h1, h2 {
 
 h1 {
   padding-bottom: $base;
-  border-bottom: 1px solid #999;
   font: 200% 'Oswald';
   text-align: center;
   text-transform: uppercase;
@@ -45,27 +45,41 @@ a { color: $accent; }
 strong, label { font-weight: bold; }
 
 .app-nav {
-  width: $base * 8;
+  width: $base * 10;
   position: fixed;
   top: 0; bottom: 0;
-  padding: $base * 2 $base;
-  background: #fcfcfc;
+  padding: $base * 2 0;
+  background: #fbfbfb;
   border-right: 1px solid #ccc;
   @include box-shadow(1px 0 1px rgba(0, 0, 0, 0.1));
 }
 
 .app-nav nav {
   padding-bottom: $base;
-  border-bottom: 1px solid #999;
 
-  a {
-    display: block;
-    text-decoration: none;
-  }
+  li {
+    &:first-child a { border-top: 1px solid rgba(0, 0, 0, 0.2); }
 
-  a:before {
-    content: '\279b';
-    margin-right: 0.5em;
+    a {
+      display: block;
+      padding: 0 $base;
+      border-top: 1px solid white;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+      color: #666;
+      line-height: 2;
+      text-decoration: none;
+      @include text-shadow(0 1px 0 white);
+
+      &:hover { background: white; }
+
+      &:active {
+        background: #aaa;
+        border-top: 1px solid rgba(0, 0, 0, 0.2);
+        @include box-shadow(2px 2px 2px rgba(0, 0, 0, 0.2) inset);
+        color: #333;
+        @include text-shadow(0 1px 0 #ccc);
+      }
+    }
   }
 }
 
