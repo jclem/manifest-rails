@@ -29,6 +29,8 @@
         <li><%= link_to 'Visit Site', '/', target: '_blank', :"data-skip-pjax" => true %></li>
         <li><%= link_to 'Log Out', manifest_logout_path, :"data-skip-pjax" => true %></li>
       </ul>
+
+      <p class='manifest-version'><a href='http://github.com/jclem/manifest-rails' target='_blank'>Manifest</a> v<%= Manifest::VERSION %></p>
     </nav>
 
     <select class='nav-select'>
